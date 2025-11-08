@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM node:24
 
 # Install OS dependencies
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
@@ -18,7 +18,7 @@ RUN gem install -N jekyll bundler
 RUN npm i -g fsh-sushi gofsh @bonfhir/cli
 
 # Install Firely Terminal
-RUN curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin -Channel 6.0 -InstallDir /usr/share/dotnet \
+RUN curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin -Channel 8.0 -InstallDir /usr/share/dotnet \
     && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 RUN dotnet tool install -g firely.terminal
 
